@@ -2,19 +2,37 @@
 <html>
   <head>
     <title>This is the title of the webpage!</title>
-    
-​
+    <script src="index1.js"></script>
   </head>
+  <style>
+    table,th,td{
+        border:1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        margin-top: 1%;
+        width: 25%;
+    }
+  </style>
   
   <body>
-    <script src="index.js"></script>
+    
     <p>Ramya's <strong>Expense Tracker App</strong></p>
-    <p id="demo">1000</p>
-    <div id="expense">
+    <p>avl bal:<span id="demo">1000</span></p>
+    <div>
       <p>Expense</p>
-      <input type="number" value="" id="inputbox"></input>
-      <input type="button" id="addition" value="+" onclick="handleTransaction(true)">
-      <input type="button" id="sub"  value="-" onclick="handleTransaction(false)">
-  </div>
+      <input type="number" value="" id="num"/>
+      <input type="button" value="+" onclick="transaction(true)"/>
+      <input type="button" value="-" onclick="transaction(false)"/>
+    </div>
+
+      <table id="myTable">     
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Balance</th>
+        </tr>
+      </table>
+
 </body>
 </html>
+
