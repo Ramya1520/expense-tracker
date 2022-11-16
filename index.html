@@ -18,11 +18,15 @@
     
     <p>Ramya's <strong>Expense Tracker App</strong></p>
     <p>avl bal:<span id="demo">1000</span></p>
+    <p id="demos"></p>
     <div>
       <p>Expense</p>
-      <input type="number" value="" id="num"/>
-      <input type="button" value="+" onclick="transaction(true)"/>
-      <input type="button" value="-" onclick="transaction(false)"/>
+      <p>amount:<input type="number" value="" id="num"/></p>
+      
+      <p>reason :<input  value="" id="spends"/></p>
+      <input type="button"  value="add" onclick="transaction(true)"/>
+      <input type="button" value="sub" onclick="transaction(false)"/>
+      <input type="button" value="gnrt" onclick="gnrt()"/>
     </div>
 
       <table id="myTable">     
@@ -30,6 +34,8 @@
           <th>Type</th>
           <th>Amount</th>
           <th>Balance</th>
+          <th>spend</th>
+          <th>date</th>
         </tr>
       </table>
 
