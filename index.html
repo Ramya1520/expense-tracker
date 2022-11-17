@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>This is the title of the webpage!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="index1.js"></script>
   </head>
   <style>
@@ -22,11 +23,15 @@
     <div>
       <p>Expense</p>
       <p>amount:<input type="number" value="" id="num"/></p>
-      
-      <p>reason :<input  value="" id="spends"/></p>
-      <input type="button"  value="add" onclick="transaction(true)"/>
-      <input type="button" value="sub" onclick="transaction(false)"/>
+      <p>reason:<input  value="" id="spends"/></p>
+    
+      <input type="button"  value="add" onclick="transaction('credit')" />
+      <input type="button" value="sub" onclick="transaction('debit')" />
       <input type="button" value="gnrt" onclick="gnrt()"/>
+
+      <input type="hidden" id="last_click" value="">
+   
+     
     </div>
 
       <table id="myTable">     
@@ -37,8 +42,9 @@
           <th>spend</th>
           <th>date</th>
         </tr>
-      </table>
-
+        <div id = "tbdy_id"></div>
+        
+      
 </body>
 </html>
 
