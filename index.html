@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>This is the title of the webpage!</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     <script src="index1.js"></script>
   </head>
   <style>
@@ -15,12 +15,9 @@
       text-transform:uppercase;
       color:black;
     }
-     
     div{
       text-align: center;
       text-transform:uppercase;
-    
-
     }
     table{
       margin-left: 40%;
@@ -36,28 +33,19 @@
         width: 25%;
     }
   </style>
-  
   <body>
-    
     <p>Ramya's <strong>Expense Tracker App</strong></p>
-    
-
     <p>avl bal:<span id="demo">1000</span></p>
     <p id="demos"></p>
     <div>
       <p>Expense</p>
       <p>amount:<input type="number" value="" id="num"/></p>
       <p>reason:<input  value="" id="spends"/></p>
-    
       <input type="button"  value="credit" onclick="transaction('credit')" />
       <input type="button" value="debit" onclick="transaction('debit')" />
       <input type="button" value="generate" onclick="gnrt()"/>
-
       <input type="hidden" id="last_click" value="">
-   
-     
     </div>
-
       <table id="myTable">     
         <tr>
           <th>Type</th>
@@ -67,10 +55,6 @@
           <th>date</th>
         </tr>
         <div id = "tbdy_id"></div>
-        
-
-          
-      
 </body>
 </html>
 
