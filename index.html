@@ -6,6 +6,28 @@
     <script src="index1.js"></script>
   </head>
   <style>
+    body{
+      background-color: lightgreen;
+      /* background-image: url("bc.jpeg"); */
+    }
+    p{
+      text-align: center;
+      text-transform:uppercase;
+      color:black;
+    }
+     
+    div{
+      text-align: center;
+      text-transform:uppercase;
+    
+
+    }
+    table{
+      margin-left: 40%;
+      text-align: center;
+      text-transform:uppercase;
+      color:blac;
+    }
     table,th,td{
         border:1px solid black;
         border-collapse: collapse;
@@ -18,6 +40,8 @@
   <body>
     
     <p>Ramya's <strong>Expense Tracker App</strong></p>
+    
+
     <p>avl bal:<span id="demo">1000</span></p>
     <p id="demos"></p>
     <div>
@@ -25,9 +49,9 @@
       <p>amount:<input type="number" value="" id="num"/></p>
       <p>reason:<input  value="" id="spends"/></p>
     
-      <input type="button"  value="add" onclick="transaction('credit')" />
-      <input type="button" value="sub" onclick="transaction('debit')" />
-      <input type="button" value="gnrt" onclick="gnrt()"/>
+      <input type="button"  value="credit" onclick="transaction('credit')" />
+      <input type="button" value="debit" onclick="transaction('debit')" />
+      <input type="button" value="generate" onclick="gnrt()"/>
 
       <input type="hidden" id="last_click" value="">
    
@@ -44,6 +68,8 @@
         </tr>
         <div id = "tbdy_id"></div>
         
+
+          
       
 </body>
 </html>
