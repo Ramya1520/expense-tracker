@@ -1,61 +1,65 @@
-<!doctype html>
 <html>
-  <head>
-    <title>This is the title of the webpage!</title>
-    
-    <script src="index1.js"></script>
-  </head>
-  <style>
-    body{
-      background-color: lightgreen;
-      /* background-image: url("bc.jpeg"); */
-    }
-    p{
-      text-align: center;
-      text-transform:uppercase;
-      color:black;
-    }
-    div{
-      text-align: center;
-      text-transform:uppercase;
-    }
-    table{
-      margin-left: 40%;
-      text-align: center;
-      text-transform:uppercase;
-      color:blac;
-    }
-    table,th,td{
-        border:1px solid black;
-        border-collapse: collapse;
-        text-align: center;
-        margin-top: 1%;
-        width: 25%;
-    }
-  </style>
-  <body>
-    <p>Ramya's <strong>Expense Tracker App</strong></p>
-    <p>avl bal:<span id="demo">1000</span></p>
-    <p id="demos"></p>
-    <div>
-      <p>Expense</p>
-      <p>amount:<input type="number" value="" id="num"/></p>
-      <p>reason:<input  value="" id="spends"/></p>
-      <input type="button"  value="credit" onclick="transaction('credit')" />
-      <input type="button" value="debit" onclick="transaction('debit')" />
-      <input type="button" value="generate" onclick="gnrt()"/>
-      <input type="hidden" id="last_click" value="">
-    </div>
-      <table id="myTable">     
-        <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Balance</th>
-          <th>spend</th>
-          <th>date</th>
-        </tr></table>
-        
-        <div id = "tbdy_id"></div>
+<title>this is my web page</title>
+
+<head> <style>
+body{
+background-color: lightgreen;
+/* background-image: url("bc.jpeg"); */
+}
+p{
+text-align: center;
+text-transform:uppercase;
+color:black;
+}
+div{
+text-align: center;
+text-transform:uppercase;
+}
+table{
+margin-left: 40%;
+text-align: center;
+text-transform:uppercase;
+color:black;
+}
+table,th,td{
+border:1px solid black;
+border-collapse: collapse;
+text-align: center;
+margin-top: 1%;
+width: 25%;
+}
+</style>
+
+<script src="index1.js"></script>
+</head><br>
+
+<body>
+<div>
+
+<p>avl bal:<span id="initial amount">1000</span></p>
+<!-- field -->
+<p>amount:<input type="number" value="" id="amount" ></p>
+<P>spend :<input type="" value="" id="spend"></P>
+<!-- button -->
+<input type="button" value="credit" onclick="transaction('credit'); creditTime();"/>
+<input type="button" value="debit" onclick="transaction('debit'); ">
+<input type="button"  value="generate" onclick="timeout=setTimeout(generate, 3000);" >
+<input type="button" value="stop it" onclick="clearTimeout(timeout)">
+<input type="button" value="stop timer" onclick="clearInterval(currentTime)">
+<input type="hidden" id="last_click" value="">
+</div>
+<!-- table -->
+</div>
+<table id="myTable">     
+<tr>
+<th>Type</th>
+<th>Amount</th>
+<th>Balance</th>
+<th>spend</th>
+<th>date</th>
+</tr></table>
+<div id = "tbdy_id"></div>
+<p id="lastCreditTime"></p>
+<p id="timer"></p>
 </body>
 </html>
-
