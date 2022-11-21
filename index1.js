@@ -9,6 +9,7 @@ var credit=parseInt(initialamount)+parseInt(amount);
 var debit=parseInt(initialamount)-parseInt(amount);
 var type = (input=='credit')? "credit":"debit";
 let balance = (input=='credit')? credit:debit;
+document.getElementById("initial amount").innerHTML =balance;
 transactionsdetails={}
 transactionsdetails.type=type;
 transactionsdetails.amount=amount;
@@ -16,6 +17,7 @@ transactionsdetails.spend=spend;
 transactionsdetails.balance=balance;
 transactionsdetails.date=date;
 arr.push(transactionsdetails);
+//alert(transactionsdetails.balance);
 console.log(arr);
 }
 function generate(){
@@ -55,4 +57,3 @@ function myTimer() {
 const d = new Date();
 document.getElementById("timer").innerHTML = "Time:" +d.toLocaleTimeString();
 }
-
