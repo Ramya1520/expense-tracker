@@ -1,6 +1,7 @@
 var arr=[];
 var d=[];
 var a;
+
 var button = document.createElement('button');
 function transaction(input){
     const date=new Date();
@@ -12,13 +13,17 @@ function transaction(input){
     var type = (input=='credit')? "credit":"debit";
     let balance = (input=='credit')? credit:debit;
     document.getElementById("initial amount").innerHTML=balance;
-
+    var id = Number(document.getElementById("p_id").value);
     transactionsdetails={}
+        
+        transactionsdetails.id=id;
         transactionsdetails.type=type;
         transactionsdetails.amount=amount;
         transactionsdetails.spend=spend;
         transactionsdetails.balance=balance;
         transactionsdetails.date=date.toLocaleTimeString();
+        console.log(transactionsdetails.id);
+        document.getElementById("p_id").value = id + 1
 //proxy
     console.log(transactionsdetails);
     let handler={
@@ -38,14 +43,14 @@ console.log(transactionsdetails.type);
 arr.push(transactionsdetails);
 console.log("==",arr);
 }
-
-
 function generate()
 {
     document.getElementById("myTable").innerHTML = "";
     var table = document.getElementById("myTable");
     var type =  document.getElementById("last_click").value;
+
     for(i=0;i<arr.length;i++){
+    
         console.log(arr[i]);
         if(arr[i].type=='amount credited'){
             d.push(arr[i])
@@ -53,24 +58,49 @@ function generate()
         else if((type=='debit')){
             console.log("hai");
         }
-        var btn = document.createElement("BUTTON");
-        var a=btn.innerHTML="delete";
-            console.log(btn);
-        var row = table.insertRow();	
+        
+        var btn = document.createElement("BUTTON")
+        btn.innerHTML="delete"
+        
+        var row = table.insertRow();
+        	
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4); 
-        var cell6=row.insertCell(5).appendChild(btn);
+        var cell5 = row.insertCell(4);
+        
+        var cell6 = row.insertCell(5).appendChild(btn);
+        btn.setAttribute("id","btn-"+i)
+        btn.addEventListener("click",console.log("tet"));
+
+        
         cell1.innerHTML = arr[i].type;
         cell2.innerHTML = arr[i].amount;
         cell3.innerHTML= arr[i].balance;
-        cell4.innerHTML = arr[i].spend;
-        cell5.innerHTML = arr[i].date;
-        cell6.innerHTML =  a;
-        }
-}
+        cell3.innerHTML = arr[i].spend;
+        cell4.innerHTML = arr[i].date;
+        // cell5.innerHTML = btn.innerHTML="delete"
+            
+    }
+      
+    function deleteRow(row) {
+      console.log(row);
+       
+        // var i = row.parentNode.parentNode.rowIndex;
+        // document.getElementById("myTable").deleteRow(i);
+    }    
+
+
+    // {id: 1, type: 'debit', amount: '2', spend: 'sa', balance: 998, date: '1:24:01 PM'}
+    // {id: 2, type: 'debit', amount: '2', spend: 'sa', balance: 998, date: '1:24:01 PM'}
+
+
+
+
+
+
+
 
 
 
@@ -105,3 +135,4 @@ function myTimer()
 
 
 
+}
