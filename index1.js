@@ -59,8 +59,11 @@ function generate()
             console.log("hai");
         }
         
-        var btn = document.createElement("BUTTON")
+        var btn = document.createElement("INPUT")
         btn.innerHTML="delete"
+        btn.value= "Delete"
+        btn.type="button"
+        btn.className ="dlt-cls"
         
         var row = table.insertRow();
         	
@@ -69,45 +72,27 @@ function generate()
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
         var cell5 = row.insertCell(4);
-        
         var cell6 = row.insertCell(5).appendChild(btn);
         btn.setAttribute("id","btn-"+i)
-        btn.addEventListener("click",console.log("tet"));
+        // debugger
+        // btn.addEventListener("click",deleteRow(this));
 
         
         cell1.innerHTML = arr[i].type;
         cell2.innerHTML = arr[i].amount;
         cell3.innerHTML= arr[i].balance;
-        cell3.innerHTML = arr[i].spend;
-        cell4.innerHTML = arr[i].date;
-        // cell5.innerHTML = btn.innerHTML="delete"
+        cell4.innerHTML = arr[i].spend;
+        cell5.innerHTML = arr[i].date;
+        cell6.innerHTML = btn.innerHTML="delete"
             
     }
-      
-    function deleteRow(row) {
-      console.log(row);
-       
-        // var i = row.parentNode.parentNode.rowIndex;
-        // document.getElementById("myTable").deleteRow(i);
-    }    
-
-
-    // {id: 1, type: 'debit', amount: '2', spend: 'sa', balance: 998, date: '1:24:01 PM'}
-    // {id: 2, type: 'debit', amount: '2', spend: 'sa', balance: 998, date: '1:24:01 PM'}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+    document.querySelectorAll('.dlt-cls')
+    .forEach(e => e.addEventListener("click", function() {
+        console.log(row)
+        console.log(transactionsdetails.id);
+        document.getElementById("myTable").deleteRow(row);
+    }));
 
 
 
