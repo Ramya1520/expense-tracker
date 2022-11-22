@@ -41,12 +41,13 @@ table,th,td{
 <p>amount:<input type="number" value="" id="amount" ></p>
 <P>spend :<input type="" value="" id="spend"></P>
 <!-- button -->
-<input type="button" value="credit" onclick="transaction('credit'); creditTime();"/>
+<input type="button" value="credit" onclick="transaction('credit'); creditTime(); "/>
 <input type="button" value="debit" onclick="transaction('debit'); ">
-<input type="button"  value="generate" onclick="timeout=setTimeout(generate, 3000);" >
+<input type="button"  value="generate" onclick="generate();" >
 <input type="button" value="stop it" onclick="clearTimeout(timeout)">
 <input type="button" value="stop timer" onclick="clearInterval(currentTime)">
 <input type="hidden" id="last_click" value="">
+
 </div>
 <!-- table -->
 </div>
@@ -57,6 +58,7 @@ table,th,td{
     <th>Balance</th>
     <th>spend</th>
     <th>date</th>
+    <th>Action</th>
     </tr></table>
 <div id = "tbdy_id"></div>
 <p id="lastCreditTime"></p>
