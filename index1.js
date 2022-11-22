@@ -3,6 +3,7 @@ var d=[];
 var a;
 
 var button = document.createElement('button');
+
 function transaction(input){
     const date=new Date();
     var initialamount=document.getElementById("initial amount").innerHTML;
@@ -16,35 +17,37 @@ function transaction(input){
     var id = Number(document.getElementById("p_id").value);
     transactionsdetails={}
         
-        transactionsdetails.id=id;
-        transactionsdetails.type=type;
-        transactionsdetails.amount=amount;
-        transactionsdetails.spend=spend;
-        transactionsdetails.balance=balance;
-        transactionsdetails.date=date.toLocaleTimeString();
-        console.log(transactionsdetails.id);
-        document.getElementById("p_id").value = id + 1
-//proxy
+    transactionsdetails.id=id;
+    transactionsdetails.type=type;
+    transactionsdetails.amount=amount;
+    transactionsdetails.spend=spend;
+    transactionsdetails.balance=balance;
+    transactionsdetails.date=date.toLocaleTimeString();
+    console.log(transactionsdetails.id);
+    document.getElementById("p_id").value = id + 1
+
+    //proxy
     console.log(transactionsdetails);
     let handler={
         get:function(targetElement,prop){
-        return targetElement[prop];
-    },
-    set:function(targetElement,prop,value){
-        if(type == 'credit'){
-        targetElement[prop]=value;
-}
-}
+            return targetElement[prop];
+        },
+        set:function(targetElement,prop,value){
+            if(type == 'credit'){
+            targetElement[prop]=value;
+            }
+        }
+    }
+    transactionsdetails=new Proxy(transactionsdetails,handler);
+    transactionsdetails.type="amount credited";
+    console.log(transactionsdetails.type);
+    arr.push(transactionsdetails);
+    console.log("==",arr);
 }
 
-transactionsdetails=new Proxy(transactionsdetails,handler);
-transactionsdetails.type="amount credited";
-console.log(transactionsdetails.type);
-arr.push(transactionsdetails);
-console.log("==",arr);
-}
-function generate()
-{
+function generate() {
+
+
     document.getElementById("myTable").innerHTML = "";
     var table = document.getElementById("myTable");
     var type =  document.getElementById("last_click").value;
@@ -73,9 +76,9 @@ function generate()
         var cell4 = row.insertCell(3);
         var cell5 = row.insertCell(4);
         var cell6 = row.insertCell(5).appendChild(btn);
+
         btn.setAttribute("id","btn-"+i)
-        // debugger
-        // btn.addEventListener("click",deleteRow(this));
+        btn.addEventListener("click",deleteRow);
 
         
         cell1.innerHTML = arr[i].type;
@@ -87,37 +90,33 @@ function generate()
             
     }
         
-    document.querySelectorAll('.dlt-cls')
-    .forEach(e => e.addEventListener("click", function() {
-        console.log(row)
-        console.log(transactionsdetails.id);
-        document.getElementById("myTable").deleteRow(row);
-    }));
+    // document.querySelectorAll('.dlt-cls').forEach(e => e.addEventListener("click", function() {
+    //     console.log(row)
+    //     console.log(transactionsdetails.id);
+    //     document.getElementById("myTable").deleteRow(row);
+    // }));
 
+    console.log("be",arr)
 
+    function deleteRow(event){
+       
+        var indexToDelete = event.target.id.split("-")[1];
+        console.log("before",arr)
+        arr.splice(indexToDelete,1);
+        console.log("after",arr)
+        generate()
+    }
 
+    function creditTime() {
+        const d = new Date();
+        document.getElementById("lastCreditTime").innerHTML ="creditime"+ d.toLocaleTimeString();
+    }
 
+    
 
-
-
-
-
-
-
-function creditTime()
-{
-    const d = new Date();
-    document.getElementById("lastCreditTime").innerHTML ="creditime"+ d.toLocaleTimeString();
-}
-    let currentTime=setInterval(myTimer, 1000);
-function myTimer()
-{
-    const d = new Date();
-    document.getElementById("timer").innerHTML = "Time:" +d.toLocaleTimeString();
-}
-
-
-
-
+    function myTimer() {
+        const d = new Date();
+        document.getElementById("timer").innerHTML = "Time:" +d.toLocaleTimeString();
+    }
 
 }
