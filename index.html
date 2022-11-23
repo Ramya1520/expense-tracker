@@ -36,23 +36,24 @@ table,th,td{
 <body>
 <div>
 
-<p>available bal:<span id="initial amount">1000</span></p>
+<p>available bal:<span id="initial amount">1000</span></p> 
 <!-- field -->
 <p>amount:<input type="number" value="" id="amount" ></p>
 <P>spend :<input type="" value="" id="spend"></P>
 <!-- button -->
-<input type="button" value="credit" onclick="transaction('credit');"/>
-<input type="button" value="debit" onclick="transaction('debit'); ">
+<select value="" onchange = "transaction(value)">  
+    <option> Choose</option>
+    <option  type="button" value="credit" onselect="transaction('credit');">credit</option> 
+    <option  type="button" value="debit" onselect="transaction('debits');">debit</option>    
+</select>  
+<!-- <input type="button" value="credit" onclick="transaction('credit');"/>
+<input type="button" value="debit" onclick="transaction('debit'); "> -->
 <input type="button"  value="generate" onclick="generate();" >
-<input type="button" value="stop it" onclick="clearTimeout(timeout)">
-<input type="button" value="stop timer" onclick="clearInterval(currentTime)">
 <input type="hidden" id="last_click" value="">
 <input type="hidden" id="p_id" value="0">
-
-
 </div>
 <!-- table -->
-</div>
+ </div>
 <table id="myTable">     
     <tr>
     

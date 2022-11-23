@@ -4,19 +4,18 @@ var a;
 
 var button = document.createElement('button');
 
-function transaction(input){
+function transaction(val){
     const date=new Date();
     var initialamount=document.getElementById("initial amount").innerHTML;
     var amount=document.getElementById("amount").value;
     var spend=document.getElementById("spend").value;
     var credit=parseInt(initialamount)+parseInt(amount);
     var debit=parseInt(initialamount)-parseInt(amount);
-    var type = (input=='credit')? "credit":"debit";
-    let balance = (input=='credit')? credit:debit;
+    var type = (val==='credit') ? "credit" : "debit";
+    let balance = (val==='credit')? credit:debit;
     document.getElementById("initial amount").innerHTML=balance;
     var id = Number(document.getElementById("p_id").value);
     transactionsdetails={}
-        
     transactionsdetails.id=id;
     transactionsdetails.type=type;
     transactionsdetails.amount=amount;
@@ -44,14 +43,10 @@ function transaction(input){
     arr.push(transactionsdetails);
     console.log("==",arr);
 }
-
 function generate() {
-
-
     document.getElementById("myTable").innerHTML = "";
     var table = document.getElementById("myTable");
     var type =  document.getElementById("last_click").value;
-
     for(i=0;i<arr.length;i++){
     
         console.log(arr[i]);
@@ -89,34 +84,12 @@ function generate() {
         cell6.innerHTML = btn.innerHTML="delete"
             
     }
-        
-    // document.querySelectorAll('.dlt-cls').forEach(e => e.addEventListener("click", function() {
-    //     console.log(row)
-    //     console.log(transactionsdetails.id);
-    //     document.getElementById("myTable").deleteRow(row);
-    // }));
-
     console.log("be",arr)
-
     function deleteRow(event){
-       
         var indexToDelete = event.target.id.split("-")[1];
         console.log("before",arr)
         arr.splice(indexToDelete,1);
         console.log("after",arr)
         generate()
-    }
-
-    function creditTime() {
-        const d = new Date();
-        document.getElementById("lastCreditTime").innerHTML ="creditime"+ d.toLocaleTimeString();
-    }
-
-    
-
-    function myTimer() {
-        const d = new Date();
-        document.getElementById("timer").innerHTML = "Time:" +d.toLocaleTimeString();
-    }
-
+    }   
 }
