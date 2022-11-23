@@ -1,19 +1,21 @@
+
 var trans=[];
 var d=[];
 var a;
 
 
 var button = document.createElement('button');
-function add(val){
+function add(value){
     const date=new Date();
     var initialamount=document.getElementById("initial amount").innerHTML;
     var amount=document.getElementById("amount").value;
+   
     var notes=document.getElementById("notes").value;
     var type=document.getElementById("select").value;
     var credit=parseInt(initialamount)+parseInt(amount);
     var debit=parseInt(initialamount)-parseInt(amount);
-    var type = (val==='credit') ? "credit" : "debit";
-    let balance = (val==='credit')? credit:debit;
+    var type = (value==='credit') ? "credit" : "debit";
+    let balance = (value==='credit')? credit:debit;
     document.getElementById("initial amount").innerHTML=balance;
     var id = Number(document.getElementById("p_id").value);
 
@@ -28,7 +30,10 @@ function add(val){
     var arr=[];
     trans.push(transactionsdetail);
     console.log(trans);
-// }
+    var amount=document.getElementById("amount").value=" ";
+    var amount=document.getElementById("notes").value=" ";
+
+ }
 // function transaction(val){
 //    const date=new Date();
 //    var initialamount=document.getElementById("initial amount").innerHTML;
@@ -125,4 +130,4 @@ function generate() {
 
     
 
-    }}}
+    }}
