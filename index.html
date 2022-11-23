@@ -40,16 +40,17 @@ table,th,td{
 <!-- field -->
 <p>amount:<input type="number" value="" id="amount" ></p>
 <P>notes :<input type="" value="" id="notes"></P>
+
 <!-- button -->
 <span>type:</span>
-<select value="" id="select">  
-    <p>type : <option> Choose</option></p>
+<select value="" id="select" onsubmit="add();">  
+    <!-- <p>type : <option> Choose</option></p> -->
     <option  type="button" value="credit" onselect="add('credit');">credit</option> 
     <option  type="button" value="debit" onselect="add('debits');">debit</option> 
 
 </select>  <br>
 
-<input type="button"  value="add" onclick="add()" >
+<input type="submit"  value="add" onclick="add();">
 <input type="button"  value="generate" onclick="generate();" >
 <input type="hidden" id="last_click" value="">
 <input type="hidden" id="p_id" value="0">
@@ -69,5 +70,6 @@ table,th,td{
 <div id = "tbdy_id"></div>
 <p id="lastCreditTime"></p>
 <p id="timer"></p>
+<p id="attempt"></p>
 </body>
 </html>

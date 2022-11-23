@@ -2,16 +2,18 @@
 var trans=[];
 var d=[];
 var a;
+var attempt=0;
+
 
 
 var button = document.createElement('button');
-function add(value){
+function add(){
     const date=new Date();
     var initialamount=document.getElementById("initial amount").innerHTML;
     var amount=document.getElementById("amount").value;
    
     var notes=document.getElementById("notes").value;
-    var type=document.getElementById("select").value;
+    var value=document.getElementById("select").value;
     var credit=parseInt(initialamount)+parseInt(amount);
     var debit=parseInt(initialamount)-parseInt(amount);
     var type = (value==='credit') ? "credit" : "debit";
@@ -32,7 +34,11 @@ function add(value){
     console.log(trans);
     var amount=document.getElementById("amount").value=" ";
     var amount=document.getElementById("notes").value=" ";
+    attempt+=1;
+    document.getElementById("attempt").innerHTML="you have completed "+attempt+" transactions";
 
+    console.log(attempt);
+   
  }
 // function transaction(val){
 //    const date=new Date();
@@ -80,7 +86,7 @@ function add(value){
 //     console.log("==",arr);
 // }
 function generate() {
-    document.getElementById("myTable").innerHTML = "";
+    document.getElementBy("myTable").innerHTML = "";
     var table = document.getElementById("myTable");
     var type =  document.getElementById("last_click").value;
     for(i=0;i<arr.length;i++){
