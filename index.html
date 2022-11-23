@@ -39,15 +39,16 @@ table,th,td{
 <p>available bal:<span id="initial amount">1000</span></p> 
 <!-- field -->
 <p>amount:<input type="number" value="" id="amount" ></p>
-<P>spend :<input type="" value="" id="spend"></P>
+<P>notes :<input type="" value="" id="spend"></P>
 <!-- button -->
+<span>type:</span>
 <select value="" onchange = "transaction(value)">  
-    <option> Choose</option>
+    <p>type : <option> Choose</option></p>
     <option  type="button" value="credit" onselect="transaction('credit');">credit</option> 
     <option  type="button" value="debit" onselect="transaction('debits');">debit</option>    
-</select>  
-<!-- <input type="button" value="credit" onclick="transaction('credit');"/>
-<input type="button" value="debit" onclick="transaction('debit'); "> -->
+</select>  <br>
+
+<input type="button"  value="add" >
 <input type="button"  value="generate" onclick="generate();" >
 <input type="hidden" id="last_click" value="">
 <input type="hidden" id="p_id" value="0">
