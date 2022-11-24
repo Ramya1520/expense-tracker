@@ -1,13 +1,10 @@
-
 var trans=[];
 var d=[];
 var a;
 var attempt=0;
-
-
-
 var button = document.createElement('button');
-function add(){
+function add()
+{
     const time=new Date();
     var initialamount=document.getElementById("initial amount").innerHTML;
     var amount=document.getElementById("amount").value;
@@ -22,7 +19,6 @@ function add(){
     var id = Number(document.getElementById("p_id").value);
 
     transactionsdetail={}
-    transactionsdetail.id=id;
     transactionsdetail.amount=amount;
     transactionsdetail.notes=notes;
     transactionsdetail.type=type;
@@ -39,11 +35,10 @@ function add(){
     console.log(attempt);  
  }
 function generate() {
-    document.getElementById("myTable").innerHTML = "";
-    var table = document.getElementById("myTable");
+    document.getElementById("content").innerHTML = "";
+    var table = document.getElementById("content");
     var type =  document.getElementById("last_click").value;
     for(i=0;i<trans.length;i++){
-    
         console.log(trans[i]);
         if(trans[i].type=='amount credited'){
             d.push(trans[i])
@@ -51,7 +46,6 @@ function generate() {
         else if((type=='debit')){
             console.log("hai");
         }
-        
         var btn = document.createElement("INPUT")
         btn.innerHTML="delete"
         btn.value= "Delete"
@@ -65,7 +59,6 @@ function generate() {
         var cell4 = row.insertCell(3);
         var cell5 = row.insertCell(4);
         var cell6 = row.insertCell(5).appendChild(btn);
-
         btn.setAttribute("id","btn-"+i)
         btn.addEventListener("click",deleteRow);
         cell1.innerHTML = trans[i].type;
@@ -74,10 +67,7 @@ function generate() {
         cell4.innerHTML = trans[i].notes;
         cell5.innerHTML = trans[i].time;
         cell6.innerHTML = btn.innerHTML="delete"   
-        
-
     }
-  
 //delete
     function deleteRow(event){
         var indexToDelete = event.target.id.split("-")[1];
@@ -87,4 +77,3 @@ function generate() {
         generate()
     }
     }
-     //trans=[];

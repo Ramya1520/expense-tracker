@@ -1,8 +1,6 @@
 <html>
 <title>this is my web page</title>
-
 <head> <style>
-
 body{
     background-color: lightgreen;
     /* background-image: url("bc.jpeg"); */
@@ -18,9 +16,7 @@ div{
     /* text-transform:uppercase; */
 }
 select{
-    
     font-weight: bold;
-
 }
 table{
     margin-left: 40%;
@@ -36,28 +32,21 @@ table,th,td{
   width: 25%;
 }
 </style>
-
 <script src="index1.js"></script>
 </head><br>
-
 <body>
 <div>
-
 <p>Available Balance:<span id="initial amount">1000</span></p> 
 <!-- field -->
 <p>Amount:<input type="number" value="" id="amount" ></p>
 <P>Notes :<input type="" value="" id="notes"></P>
-
 <!-- button -->
 <span>Type:</span>
 <select value="" id="select" onsubmit="add();">
-
     <option> Choose</option> <br>
     <option  type="button" value="credit" onselect="add('credit');">credit</option> 
     <option  type="button" value="debit" onselect="add('debits');">debit</option> 
-
 </select>  
-
 <input type="submit"  value="Upload" onclick="add();">
 <input type="button"  value="Generate" onclick="generate();" >
 <input type="hidden" id="last_click" value="">
@@ -67,14 +56,17 @@ table,th,td{
  </div>
 <table id="myTable">     
     <tr>
-    
     <th>Type</th>
     <th>Amount</th>
     <th>Balance</th>
     <th>Reason</th>
     <th>Time</th>
     <th>Action</th>
-    </tr></table>
+    </tr>
+    <thead>
+        <tbody id="content"></tbody>
+    </thead>
+</table>
 <div id = "tbdy_id"></div>
 <p id="lastCreditTime"></p>
 <p id="timer"></p>
