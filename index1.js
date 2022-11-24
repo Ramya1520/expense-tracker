@@ -22,6 +22,7 @@ function add(){
     var id = Number(document.getElementById("p_id").value);
 
     transactionsdetail={}
+    transactionsdetail.id=id;
     transactionsdetail.amount=amount;
     transactionsdetail.notes=notes;
     transactionsdetail.type=type;
@@ -38,7 +39,7 @@ function add(){
     console.log(attempt);  
  }
 function generate() {
-    //document.getElementById("myTable").innerHTML = "";
+    document.getElementById("myTable").innerHTML = "";
     var table = document.getElementById("myTable");
     var type =  document.getElementById("last_click").value;
     for(i=0;i<trans.length;i++){
@@ -76,7 +77,7 @@ function generate() {
         
 
     }
-    trans=[];
+  
 //delete
     function deleteRow(event){
         var indexToDelete = event.target.id.split("-")[1];
@@ -86,3 +87,4 @@ function generate() {
         generate()
     }
     }
+     //trans=[];
