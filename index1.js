@@ -1,3 +1,5 @@
+
+var b="choose";
 var trans=[];
 var d=[];
 var a;
@@ -16,6 +18,7 @@ function add()
     var type = (value==='credit') ? "credit" : "debit";
     let balance = (value==='credit')? credit:debit;
     document.getElementById("initial amount").innerHTML=balance;
+    console.log(balance); 
     var id = Number(document.getElementById("p_id").value);
 
     transactionsdetail={}
@@ -28,13 +31,20 @@ function add()
     document.getElementById("p_id").value = id + 1
     trans.push(transactionsdetail);
     console.log(trans);
+    // empty
+    //document.getElementById("select").value=" ";
+
+    //document.getElementById("choose").innerHTML=b;
+
     var amount=document.getElementById("amount").value=" ";
-    var amount=document.getElementById("notes").value=" ";
+    var nodes=document.getElementById("notes").value=" ";
+    document.getElementById("select").value=document.getElementById("choose").value;
     attempt+=1;
     document.getElementById("attempt").innerHTML="You have completed "+attempt+" transactions";
     console.log(attempt);  
  }
 function generate() {
+    console.log(b);
     document.getElementById("content").innerHTML = "";
     var table = document.getElementById("content");
     var type =  document.getElementById("last_click").value;

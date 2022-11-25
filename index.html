@@ -43,7 +43,8 @@ table,th,td{
 <!-- button -->
 <span>Type:</span>
 <select value="" id="select" onsubmit="add();">
-    <option> Choose</option> <br>
+    <option id="choose" type="button" value="choose" onselect="add('credit');">choose</option> 
+    
     <option  type="button" value="credit" onselect="add('credit');">credit</option> 
     <option  type="button" value="debit" onselect="add('debits');">debit</option> 
 </select>  
